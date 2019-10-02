@@ -1,7 +1,11 @@
+const messages = require('./msg.json')
 module.exports ={
-    print
+    msg
 }
 
-function print(){
-    console.log(`Print my name is here`);
+// console.log(msg('SM004'));
+function msg(msgCode){
+    const getMessages = messages[msgCode];
+    if(getMessages) return { 'code': msgCode, 'msg': getMessages };
+    else return { 'code':msgCode, 'msg': 'Your message code is not defined.'};
 }
